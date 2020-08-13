@@ -20,7 +20,8 @@ public static void main(String[] args) {
         System.out.println(conta2.imprimeConta());
         
         //conta1.saque(50);
-        conta1.tranferencia(100, conta2);
+        conta1.credito(50);
+        conta2.debito(200);
         
         System.out.println(conta1.imprimeConta());
         System.out.println(conta2.imprimeConta());
