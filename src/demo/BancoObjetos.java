@@ -17,25 +17,15 @@ public static void main(String[] args) {
         
 
         System.out.println(conta1.imprimeConta()); // imprimir todas as infomaçoes na linha
+        System.out.println(conta2.imprimeConta());
         
-        conta1.saque(50);
+        //conta1.saque(50);
         conta1.tranferencia(100, conta2);
         
         System.out.println(conta1.imprimeConta());
         System.out.println(conta2.imprimeConta());
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        System.out.println(conta2.imprimeConta());
-
+    
         
 
     }
