@@ -1,5 +1,5 @@
 package demo;
- class Banco {
+class Banco {
      public static void main (String[] args){
      int conta1 = 1;
      String nomeConta1 = "Vinicius";

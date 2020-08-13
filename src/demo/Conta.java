@@ -34,6 +34,13 @@ public class Conta {
     
     public void saque(float valorSaque){
         this.saldo -= valorSaque;
+      
+    }
+    
+    public void tranferencia (float valorSaque, Conta contaDestino){
+        this.saldo -= valorSaque;
+        float saldoDestino = contaDestino.getSaldo() + valorSaque;
+        contaDestino.setSaldo(saldoDestino);
     }
     
     public String imprimeConta(){
