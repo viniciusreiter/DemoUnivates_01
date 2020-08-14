@@ -48,9 +48,9 @@ public class InterfaceBanco extends javax.swing.JFrame {
     private void atualizarInformacoesTela(){
     lblConta1.setText( conta1.getNome());
     lblConta2.setText(conta2.getNome());
-    lblChequeEspecialConta1.setText(" Cheque Especial: " + String.valueOf(conta1.getCheque()));
     lblSaldoConta1.setText(" Saldo:  " + String.valueOf(conta1.getSaldo()));
     lblSaldoConta2.setText(" Saldo:  " + String.valueOf(conta2.getSaldo()));
+    lblChequeEspecialConta1.setText(" Cheque Especial: " + String.valueOf(conta1.getCheque()));
     lblChequeEspecialConta2.setText(" Cheque Especial: " + String.valueOf(conta2.getCheque()));
 }
 
