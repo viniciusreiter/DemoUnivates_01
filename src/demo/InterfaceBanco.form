@@ -23,72 +23,74 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="lblChequeEspecialConta1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lblSaldoConta1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblConta1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="txtValor1" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnTranferirConta1" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnSacarConta1" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnDepositarConta1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblSaldoConta1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblConta1" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="181" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtValor2" alignment="1" max="32767" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="lblSaldoConta2" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblConta2" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Component id="lblChequeEspecialConta2" alignment="1" max="32767" attributes="0"/>
                   <Component id="btnTranferirConta2" alignment="1" max="32767" attributes="0"/>
                   <Component id="btnSacarConta2" alignment="1" max="32767" attributes="0"/>
                   <Component id="btnDepositarConta2" alignment="1" max="32767" attributes="0"/>
+                  <Component id="lblConta2" alignment="1" max="32767" attributes="0"/>
+                  <Component id="lblSaldoConta2" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblConta2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblConta1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblConta1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblSaldoConta1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblChequeEspecialConta1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txtValor1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnTranferirConta1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSacarConta1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnDepositarConta1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblConta2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
+                              <Component id="txtValor2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblSaldoConta2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblChequeEspecialConta2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnTranferirConta2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSacarConta2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnDepositarConta2" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblSaldoConta1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblSaldoConta2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblChequeEspecialConta1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblChequeEspecialConta2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtValor1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtValor2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnTranferirConta1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnTranferirConta2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnSacarConta2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSacarConta1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnDepositarConta1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDepositarConta2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,11 +98,13 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblSaldoConta1">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Saldo 1 "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblConta2">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Conta 2"/>
       </Properties>
     </Component>
@@ -111,11 +115,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblConta1">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Conta 1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblSaldoConta2">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Saldo 2"/>
       </Properties>
     </Component>
