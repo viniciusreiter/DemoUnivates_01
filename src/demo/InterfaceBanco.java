@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package demo;
+
+import ferramentas.CaixaDeDialogo;
 
 /**
  *
@@ -14,9 +17,38 @@ public class InterfaceBanco extends javax.swing.JFrame {
     /**
      * Creates new form InterfaceBanco
      */
+    Conta conta1;
+    Conta conta2;
+            
     public InterfaceBanco() {
         initComponents();
+        
+        conta1 = new Conta();
+        conta2 = new Conta();
+    
+        conta1.setConta(1);
+        conta1.setNome("Vinicius");
+        conta1.setSaldo(200);
+        conta1.setCheque(500);
+
+        conta2.setConta(2);
+        conta2.setNome("Xunning");
+        conta2.setSaldo(500);
+        conta2.setCheque(1000);
+        
+        atualizarInformacoesTela();
+        
+
     }
+    
+    private void atualizarInformacoesTela(){
+    lblConta1.setText(conta1.getNome());
+    lblConta2.setText(conta2.getNome());
+    lblChequeEspecialConta1.setText(String.valueOf(conta1.getCheque()));
+    lblSaldoConta1.setText(String.valueOf(conta1.getSaldo()));
+    lblSaldoConta2.setText(String.valueOf(conta2.getSaldo()));
+    lblChequeEspecialConta2.setText(String.valueOf(conta2.getCheque()));
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,21 +59,256 @@ public class InterfaceBanco extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblSaldoConta1 = new javax.swing.JLabel();
+        lblConta2 = new javax.swing.JLabel();
+        txtValor1 = new javax.swing.JTextField();
+        lblConta1 = new javax.swing.JLabel();
+        lblSaldoConta2 = new javax.swing.JLabel();
+        txtValor2 = new javax.swing.JTextField();
+        btnTranferirConta1 = new javax.swing.JButton();
+        btnTranferirConta2 = new javax.swing.JButton();
+        btnSacarConta1 = new javax.swing.JButton();
+        btnDepositarConta1 = new javax.swing.JButton();
+        lblChequeEspecialConta1 = new javax.swing.JLabel();
+        lblChequeEspecialConta2 = new javax.swing.JLabel();
+        btnSacarConta2 = new javax.swing.JButton();
+        btnDepositarConta2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblSaldoConta1.setText("Saldo 1 ");
+
+        lblConta2.setText("Conta 2");
+
+        txtValor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValor1ActionPerformed(evt);
+            }
+        });
+
+        lblConta1.setText("Conta 1");
+
+        lblSaldoConta2.setText("Saldo 2");
+
+        txtValor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValor2ActionPerformed(evt);
+            }
+        });
+
+        btnTranferirConta1.setText("Transferir");
+        btnTranferirConta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTranferirConta1ActionPerformed(evt);
+            }
+        });
+
+        btnTranferirConta2.setText("Transferir");
+        btnTranferirConta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTranferirConta2ActionPerformed(evt);
+            }
+        });
+
+        btnSacarConta1.setText("Sacar");
+        btnSacarConta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSacarConta1ActionPerformed(evt);
+            }
+        });
+
+        btnDepositarConta1.setText("Depositar");
+        btnDepositarConta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepositarConta1ActionPerformed(evt);
+            }
+        });
+
+        lblChequeEspecialConta1.setText("Cheque Especial");
+
+        lblChequeEspecialConta2.setText("Cheque Especial");
+
+        btnSacarConta2.setText("Sacar");
+        btnSacarConta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSacarConta2ActionPerformed(evt);
+            }
+        });
+
+        btnDepositarConta2.setText("Depositar");
+        btnDepositarConta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepositarConta2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblChequeEspecialConta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSaldoConta1)
+                    .addComponent(lblConta1)
+                    .addComponent(txtValor1)
+                    .addComponent(btnTranferirConta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSacarConta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDepositarConta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtValor2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblSaldoConta2)
+                        .addComponent(lblConta2))
+                    .addComponent(lblChequeEspecialConta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTranferirConta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSacarConta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDepositarConta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblConta2)
+                    .addComponent(lblConta1))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSaldoConta1)
+                    .addComponent(lblSaldoConta2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblChequeEspecialConta1)
+                    .addComponent(lblChequeEspecialConta2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTranferirConta1)
+                    .addComponent(btnTranferirConta2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSacarConta2)
+                    .addComponent(btnSacarConta1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDepositarConta1)
+                    .addComponent(btnDepositarConta2))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSacarConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarConta1ActionPerformed
+
+ try{
+        float valor = Float.parseFloat(txtValor1.getText());
+        boolean resultado = conta1.credito(valor);
+        if(resultado){
+        atualizarInformacoesTela();
+        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+        }else{
+           CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a'); 
+        }
+        
+ }catch(Exception ex){
+     CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
+ }
+    }//GEN-LAST:event_btnSacarConta1ActionPerformed
+
+    private void btnDepositarConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarConta1ActionPerformed
+         try{
+        float valor = Float.parseFloat(txtValor1.getText());
+        conta1.debito(valor);
+        atualizarInformacoesTela();
+        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
+         }catch(Exception ex){
+             CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
+         }
+    }//GEN-LAST:event_btnDepositarConta1ActionPerformed
+
+    private void txtValor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValor1ActionPerformed
+
+    private void txtValor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValor2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValor2ActionPerformed
+
+    private void btnTranferirConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferirConta1ActionPerformed
+        
+        try{
+        float valor = Float.parseFloat(txtValor1.getText());
+        boolean resultado = conta1.credito(valor);
+        if(resultado){
+            conta2.debito(valor);
+        atualizarInformacoesTela();
+        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+        }else{
+           CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a'); 
+        }
+        
+ }catch(Exception ex){
+     CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
+ }
+        
+    }//GEN-LAST:event_btnTranferirConta1ActionPerformed
+
+    private void btnTranferirConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferirConta2ActionPerformed
+        
+       try{
+        float valor = Float.parseFloat(txtValor2.getText());
+        boolean resultado = conta2.credito(valor);
+        if(resultado){
+            conta1.debito(valor);
+        atualizarInformacoesTela();
+        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+        }else{
+           CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a'); 
+        }
+        
+        }catch(Exception ex){
+         CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
+        } 
+        
+    }//GEN-LAST:event_btnTranferirConta2ActionPerformed
+
+    private void btnSacarConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarConta2ActionPerformed
+       
+        try{
+        float valor = Float.parseFloat(txtValor2.getText());
+        boolean resultado = conta2.credito(valor);
+        if(resultado){
+        atualizarInformacoesTela();
+        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+        }else{
+           CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a'); 
+        }
+        
+ }catch(Exception ex){
+     CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
+ }
+        
+    }//GEN-LAST:event_btnSacarConta2ActionPerformed
+
+    private void btnDepositarConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarConta2ActionPerformed
+        
+        try{
+        float valor = Float.parseFloat(txtValor2.getText());
+        conta2.debito(valor);
+        atualizarInformacoesTela();
+        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
+         }catch(Exception ex){
+             CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
+         }
+        
+    }//GEN-LAST:event_btnDepositarConta2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +346,19 @@ public class InterfaceBanco extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDepositarConta1;
+    private javax.swing.JButton btnDepositarConta2;
+    private javax.swing.JButton btnSacarConta1;
+    private javax.swing.JButton btnSacarConta2;
+    private javax.swing.JButton btnTranferirConta1;
+    private javax.swing.JButton btnTranferirConta2;
+    private javax.swing.JLabel lblChequeEspecialConta1;
+    private javax.swing.JLabel lblChequeEspecialConta2;
+    private javax.swing.JLabel lblConta1;
+    private javax.swing.JLabel lblConta2;
+    private javax.swing.JLabel lblSaldoConta1;
+    private javax.swing.JLabel lblSaldoConta2;
+    private javax.swing.JTextField txtValor1;
+    private javax.swing.JTextField txtValor2;
     // End of variables declaration//GEN-END:variables
 }

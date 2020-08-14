@@ -7,6 +7,7 @@ public class Conta {
     private int conta;
     private String nome;
     private float saldo;
+    private float cheque;
 
     public int getConta() {
         return conta;
@@ -33,13 +34,26 @@ public class Conta {
     }
     
     public void debito(float valor){
-        this.saldo -= valor;
+        this.saldo += valor;
       
     }
     
-        public void credito(float valor){
-        this.saldo -= valor;
+        public boolean credito(float valor){
+        if(this.saldo + cheque >= valor){
+            this.saldo -= valor;
+            return true;
+        }else{
+            return false;
+        }
       
+    }
+
+    public float getCheque() {
+        return cheque;
+    }
+
+    public void setCheque(float cheque) {
+        this.cheque = cheque;
     }
         
     
