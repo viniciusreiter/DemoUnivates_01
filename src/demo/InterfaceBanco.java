@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package demo;
 
 import ferramentas.CaixaDeDialogo;
@@ -19,17 +18,16 @@ public class InterfaceBanco extends javax.swing.JFrame {
      */
     Conta conta1;
     Conta conta2;
-            
+
     public InterfaceBanco() {
         initComponents();
-        
+
         txtValor1.setDocument(new VerificaCampos());
         txtValor2.setDocument(new VerificaCampos());
-         
-                
+
         conta1 = new Conta();
         conta2 = new Conta();
-    
+
         conta1.setConta(1);
         conta1.setNome("Vinicius");
         conta1.setSaldo(300);
@@ -39,20 +37,19 @@ public class InterfaceBanco extends javax.swing.JFrame {
         conta2.setNome("Cliente 2");
         conta2.setSaldo(550);
         conta2.setCheque(2000);
-        
+
         atualizarInformacoesTela();
-        
 
     }
-    
-    private void atualizarInformacoesTela(){
-    lblConta1.setText( conta1.getNome());
-    lblConta2.setText(conta2.getNome());
-    lblSaldoConta1.setText(" Saldo:  " + String.valueOf(conta1.getSaldo()));
-    lblSaldoConta2.setText(" Saldo:  " + String.valueOf(conta2.getSaldo()));
-    lblChequeEspecialConta1.setText(" Cheque Especial: " + String.valueOf(conta1.getCheque()));
-    lblChequeEspecialConta2.setText(" Cheque Especial: " + String.valueOf(conta2.getCheque()));
-}
+
+    private void atualizarInformacoesTela() {
+        lblConta1.setText(conta1.getNome());
+        lblConta2.setText(conta2.getNome());
+        lblSaldoConta1.setText(" Saldo:  " + String.valueOf(conta1.getSaldo()));
+        lblSaldoConta2.setText(" Saldo:  " + String.valueOf(conta2.getSaldo()));
+        lblChequeEspecialConta1.setText(" Cheque Especial: " + String.valueOf(conta1.getCheque()));
+        lblChequeEspecialConta2.setText(" Cheque Especial: " + String.valueOf(conta2.getCheque()));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -218,33 +215,33 @@ public class InterfaceBanco extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSacarConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarConta1ActionPerformed
-    verificaCamposVazios();
- try{
-        float valor = Float.parseFloat(txtValor1.getText());
-        boolean resultado = conta1.credito(valor);
-        if(resultado){
-        atualizarInformacoesTela();
-        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
-        }else{
-           CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a'); 
+        verificaCamposVazios();
+        try {
+            float valor = Float.parseFloat(txtValor1.getText());
+            boolean resultado = conta1.credito(valor);
+            if (resultado) {
+                atualizarInformacoesTela();
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+            } else {
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a');
+            }
+
+        } catch (Exception ex) {
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
         }
-        
- }catch(Exception ex){
-     CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
- }
     }//GEN-LAST:event_btnSacarConta1ActionPerformed
 
     private void btnDepositarConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarConta1ActionPerformed
-         
-         verificaCamposVazios();
-         try{
-        float valor = Float.parseFloat(txtValor1.getText());
-        conta1.debito(valor);
-        atualizarInformacoesTela();
-        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
-         }catch(Exception ex){
-             CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
-         }
+
+        verificaCamposVazios();
+        try {
+            float valor = Float.parseFloat(txtValor1.getText());
+            conta1.debito(valor);
+            atualizarInformacoesTela();
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
+        } catch (Exception ex) {
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
+        }
     }//GEN-LAST:event_btnDepositarConta1ActionPerformed
 
     private void txtValor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValor1ActionPerformed
@@ -256,79 +253,79 @@ public class InterfaceBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValor2ActionPerformed
 
     private void btnTranferirConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferirConta1ActionPerformed
-         verificaCamposVazios();
-        try{
-        float valor = Float.parseFloat(txtValor1.getText());
-        boolean resultado = conta1.credito(valor);
-        if(resultado){
-            conta2.debito(valor);
-        atualizarInformacoesTela();
-        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
-        }else{
-           CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a'); 
+        verificaCamposVazios();
+        try {
+            float valor = Float.parseFloat(txtValor1.getText());
+            boolean resultado = conta1.credito(valor);
+            if (resultado) {
+                conta2.debito(valor);
+                atualizarInformacoesTela();
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+            } else {
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a');
+            }
+
+        } catch (Exception ex) {
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
         }
-        
- }catch(Exception ex){
-     CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
- }
-        
+
     }//GEN-LAST:event_btnTranferirConta1ActionPerformed
 
     private void btnTranferirConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferirConta2ActionPerformed
-         verificaCamposVazios();
-       try{
-        float valor = Float.parseFloat(txtValor2.getText());
-        boolean resultado = conta2.credito(valor);
-        if(resultado){
-            conta1.debito(valor);
-        atualizarInformacoesTela();
-        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
-        }else{
-           CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a'); 
+        verificaCamposVazios();
+        try {
+            float valor = Float.parseFloat(txtValor2.getText());
+            boolean resultado = conta2.credito(valor);
+            if (resultado) {
+                conta1.debito(valor);
+                atualizarInformacoesTela();
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+            } else {
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a');
+            }
+
+        } catch (Exception ex) {
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
         }
-        
-        }catch(Exception ex){
-         CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
-        } 
-        
+
     }//GEN-LAST:event_btnTranferirConta2ActionPerformed
 
     private void btnSacarConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarConta2ActionPerformed
         verificaCamposVazios();
-        try{
-        float valor = Float.parseFloat(txtValor2.getText());
-        boolean resultado = conta2.credito(valor);
-        if(resultado){
-        atualizarInformacoesTela();
-        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
-        }else{
-           CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a'); 
+        try {
+            float valor = Float.parseFloat(txtValor2.getText());
+            boolean resultado = conta2.credito(valor);
+            if (resultado) {
+                atualizarInformacoesTela();
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+            } else {
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a');
+            }
+
+        } catch (Exception ex) {
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
         }
-        
- }catch(Exception ex){
-     CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
- }
-        
+
     }//GEN-LAST:event_btnSacarConta2ActionPerformed
-    
+
     private void verificaCamposVazios() {
-      
+
         if (txtValor1.getText().isEmpty() && txtValor2.getText().isEmpty()) {
             CaixaDeDialogo.obterinstancia().exibirMensagem("Preencha os campos corretamente!", 'a');
         }
     }
-    
+
     private void btnDepositarConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarConta2ActionPerformed
         verificaCamposVazios();
-        try{
-        float valor = Float.parseFloat(txtValor2.getText());
-        conta2.debito(valor);
-        atualizarInformacoesTela();
-        CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
-         }catch(Exception ex){
-             CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
-         }
-        
+        try {
+            float valor = Float.parseFloat(txtValor2.getText());
+            conta2.debito(valor);
+            atualizarInformacoesTela();
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
+        } catch (Exception ex) {
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
+        }
+
     }//GEN-LAST:event_btnDepositarConta2ActionPerformed
 
     /**
