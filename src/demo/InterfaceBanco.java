@@ -21,22 +21,21 @@ public class InterfaceBanco extends javax.swing.JFrame {
 
     public InterfaceBanco() {
         initComponents();
-
-        txtValor1.setDocument(new VerificaCampos());
-        txtValor2.setDocument(new VerificaCampos());
-
-        conta1 = new Conta();
-        conta2 = new Conta();
-
-        conta1.setConta(1);
-        conta1.setNome("Vinicius");
-        conta1.setSaldo(300);
-        conta1.setCheque(1000);
-
-        conta2.setConta(2);
-        conta2.setNome("Cliente 2");
-        conta2.setSaldo(550);
-        conta2.setCheque(2000);
+        
+        Conexao.abreConexao();
+        
+        ContaController controller = new ContaController();
+        
+         conta1 = controller.buscar(21);
+         conta2 = controller.buscar(25);
+         
+         float saldoConta1 = controller.buscarSaldo(21);
+         float saldoConta2 = controller.buscarSaldo(25);
+         
+         conta1.setSaldo(saldoConta1);
+          conta2.setSaldo(saldoConta2);
+         
+                 
 
         atualizarInformacoesTela();
 
@@ -47,8 +46,8 @@ public class InterfaceBanco extends javax.swing.JFrame {
         lblConta2.setText(conta2.getNome());
         lblSaldoConta1.setText(" Saldo:  " + String.valueOf(conta1.getSaldo()));
         lblSaldoConta2.setText(" Saldo:  " + String.valueOf(conta2.getSaldo()));
-        lblChequeEspecialConta1.setText(" Cheque Especial: " + String.valueOf(conta1.getCheque()));
-        lblChequeEspecialConta2.setText(" Cheque Especial: " + String.valueOf(conta2.getCheque()));
+        lblChequeEspecialConta1.setText(" Cheque Especial: " + String.valueOf(conta1.getCheque_especial()));
+        lblChequeEspecialConta2.setText(" Cheque Especial: " + String.valueOf(conta2.getCheque_especial()));
     }
 
     /**

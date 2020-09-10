@@ -4,18 +4,37 @@ package demo;
 
 public class Conta {
     
-    private int conta;
+    private int id;
+    private String conta;
     private String nome;
     private float saldo;
-    private float cheque;
+    private float cheque_especial;
 
-    public int getConta() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getConta() {
         return conta;
     }
 
-    public void setConta(int conta) {
+    public void setConta(String conta) {
         this.conta = conta;
     }
+
+    public float getCheque_especial() {
+        return cheque_especial;
+    }
+
+    public void setCheque_especial(float cheque_especial) {
+        this.cheque_especial = cheque_especial;
+    }
+
+
 
     public String getNome() {
         return nome;
@@ -33,28 +52,8 @@ public class Conta {
         this.saldo = saldo;
     }
     
-    public void debito(float valor){
-        this.saldo += valor;
-      
-    }
-    
-        public boolean credito(float valor){
-        if(this.saldo + cheque >= valor){
-            this.saldo -= valor;
-            return true;
-        }else{
-            return false;
-        }
-      
-    }
 
-    public float getCheque() {
-        return cheque;
-    }
 
-    public void setCheque(float cheque) {
-        this.cheque = cheque;
-    }
         
     
     public String imprimeConta(){
