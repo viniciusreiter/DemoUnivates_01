@@ -6,6 +6,7 @@
 package demo;
 
 import ferramentas.CaixaDeDialogo;
+import demo.ContaController;
 
 /**
  *
@@ -28,20 +29,20 @@ public class InterfaceBanco extends javax.swing.JFrame {
         
          conta1 = controller.buscar(21);
          conta2 = controller.buscar(25);
-         
-         float saldoConta1 = controller.buscarSaldo(21);
-         float saldoConta2 = controller.buscarSaldo(25);
-         
-         conta1.setSaldo(saldoConta1);
-          conta2.setSaldo(saldoConta2);
-         
-                 
+          
 
         atualizarInformacoesTela();
 
     }
 
     private void atualizarInformacoesTela() {
+         ContaController controller = new ContaController();
+         float saldoConta1 = controller.buscarSaldo(21);
+         float saldoConta2 = controller.buscarSaldo(22);
+         
+         conta1.setSaldo(saldoConta1);
+         conta2.setSaldo(saldoConta2);
+        
         lblConta1.setText(conta1.getNome());
         lblConta2.setText(conta2.getNome());
         lblSaldoConta1.setText(" Saldo:  " + String.valueOf(conta1.getSaldo()));
@@ -214,31 +215,38 @@ public class InterfaceBanco extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSacarConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarConta1ActionPerformed
-        verificaCamposVazios();
         try {
             float valor = Float.parseFloat(txtValor1.getText());
-            boolean resultado = conta1.credito(valor);
-            if (resultado) {
-                atualizarInformacoesTela();
-                CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
-            } else {
-                CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a');
+            
+            ContaController controller = new ContaController();
+            boolean retorno = controller.credito(conta1, valor);
+            if(retorno){
+            atualizarInformacoesTela();
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
+            System.out.println("Operacao de credito" + valor);
+        }else{
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro ao realizar operaçao", 'e');
             }
-
-        } catch (Exception ex) {
+        }catch (Exception ex) {
             CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
         }
     }//GEN-LAST:event_btnSacarConta1ActionPerformed
 
     private void btnDepositarConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarConta1ActionPerformed
 
-        verificaCamposVazios();
         try {
             float valor = Float.parseFloat(txtValor1.getText());
-            conta1.debito(valor);
+            
+            ContaController controller = new ContaController();
+            boolean retorno = controller.debito(conta1, valor);
+            if(retorno){
             atualizarInformacoesTela();
             CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
-        } catch (Exception ex) {
+            System.out.println("Operacao de debito" + valor);
+        }else{
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro ao realizar operaçao", 'e');
+            }
+        }catch (Exception ex) {
             CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
         }
     }//GEN-LAST:event_btnDepositarConta1ActionPerformed
@@ -252,14 +260,22 @@ public class InterfaceBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValor2ActionPerformed
 
     private void btnTranferirConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferirConta1ActionPerformed
-        verificaCamposVazios();
         try {
             float valor = Float.parseFloat(txtValor1.getText());
-            boolean resultado = conta1.credito(valor);
+           // boolean resultado = conta1.credito(valor);
+            ContaController controller = new ContaController();
+            boolean resultado = controller.debito(conta1, valor);
             if (resultado) {
-                conta2.debito(valor);
+               // conta2.debito(valor);
+               resultado = controller.debito(conta2,valor);
+               if(resultado){
                 atualizarInformacoesTela();
                 CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+               }else{
+                   CaixaDeDialogo.obterinstancia().exibirMensagem("Erro na operacao!", 'a');
+                   
+               }
+               
             } else {
                 CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a');
             }
@@ -271,14 +287,22 @@ public class InterfaceBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTranferirConta1ActionPerformed
 
     private void btnTranferirConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferirConta2ActionPerformed
-        verificaCamposVazios();
         try {
             float valor = Float.parseFloat(txtValor2.getText());
-            boolean resultado = conta2.credito(valor);
+           // boolean resultado = conta1.credito(valor);
+            ContaController controller = new ContaController();
+            boolean resultado = controller.debito(conta2, valor);
             if (resultado) {
-                conta1.debito(valor);
+               // conta2.debito(valor);
+               resultado = controller.debito(conta1,valor);
+               if(resultado){
                 atualizarInformacoesTela();
                 CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
+               }else{
+                   CaixaDeDialogo.obterinstancia().exibirMensagem("Erro na operacao!", 'a');
+                   
+               }
+               
             } else {
                 CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a');
             }
@@ -290,38 +314,45 @@ public class InterfaceBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTranferirConta2ActionPerformed
 
     private void btnSacarConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarConta2ActionPerformed
-        verificaCamposVazios();
         try {
             float valor = Float.parseFloat(txtValor2.getText());
-            boolean resultado = conta2.credito(valor);
-            if (resultado) {
-                atualizarInformacoesTela();
-                CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso!", 'i');
-            } else {
-                CaixaDeDialogo.obterinstancia().exibirMensagem("Saldo insuficiente!", 'a');
+            
+            ContaController controller = new ContaController();
+            boolean retorno = controller.credito(conta2, valor);
+            if(retorno){
+            atualizarInformacoesTela();
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
+            System.out.println("Operacao de credito" + valor);
+        }else{
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro ao realizar operaçao", 'e');
             }
-
-        } catch (Exception ex) {
+        }catch (Exception ex) {
             CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
         }
 
     }//GEN-LAST:event_btnSacarConta2ActionPerformed
 
-    private void verificaCamposVazios() {
-
-        if (txtValor1.getText().isEmpty() && txtValor2.getText().isEmpty()) {
-            CaixaDeDialogo.obterinstancia().exibirMensagem("Preencha os campos corretamente!", 'a');
-        }
-    }
+//    private void verificaCamposVazios() {
+//
+//        if (txtValor1.getText().isEmpty() && txtValor2.getText().isEmpty()) {
+//            CaixaDeDialogo.obterinstancia().exibirMensagem("Preencha os campos corretamente!", 'a');
+//        }
+//    }
 
     private void btnDepositarConta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarConta2ActionPerformed
-        verificaCamposVazios();
         try {
             float valor = Float.parseFloat(txtValor2.getText());
-            conta2.debito(valor);
+            
+            ContaController controller = new ContaController();
+            boolean retorno = controller.debito(conta2, valor);
+            if(retorno){
             atualizarInformacoesTela();
             CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
-        } catch (Exception ex) {
+            System.out.println("Operacao de debito" + valor);
+        }else{
+            CaixaDeDialogo.obterinstancia().exibirMensagem("Erro ao realizar operaçao", 'e');
+            }
+        }catch (Exception ex) {
             CaixaDeDialogo.obterinstancia().exibirMensagem("Erro: " + ex.getMessage(), 'e');
         }
 

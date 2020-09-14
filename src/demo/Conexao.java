@@ -26,7 +26,7 @@ public class Conexao {
     public static void abreConexao() {
         try {
             
-            con = getConnection();
+            Connection con = getConnection();
             stmt = con.createStatement();
             System.out.print("Conexão com Banco de Dados Criada!");
         } catch (Exception ex) {
