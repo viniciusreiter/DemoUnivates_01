@@ -17,28 +17,22 @@ public class InterfaceBanco extends javax.swing.JFrame {
     /**
      * Creates new form InterfaceBanco
      */
-    Conta conta1;
-    Conta conta2;
+   public Conta conta1;
+   public Conta conta2;
 
     public InterfaceBanco() {
         initComponents();
         
         Conexao.abreConexao();
         
-        ContaController controller = new ContaController();
-        
-         conta1 = controller.buscar(21);
-         conta2 = controller.buscar(25);
-          
 
-        atualizarInformacoesTela();
 
     }
 
     private void atualizarInformacoesTela() {
          ContaController controller = new ContaController();
-         float saldoConta1 = controller.buscarSaldo(21);
-         float saldoConta2 = controller.buscarSaldo(22);
+         float saldoConta1 = controller.buscarSaldo(conta1.getId());
+         float saldoConta2 = controller.buscarSaldo(conta2.getId());
          
          conta1.setSaldo(saldoConta1);
          conta2.setSaldo(saldoConta2);
@@ -76,6 +70,11 @@ public class InterfaceBanco extends javax.swing.JFrame {
         btnDepositarConta2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblSaldoConta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSaldoConta1.setText("Saldo 1 ");
@@ -264,7 +263,7 @@ public class InterfaceBanco extends javax.swing.JFrame {
             float valor = Float.parseFloat(txtValor1.getText());
            // boolean resultado = conta1.credito(valor);
             ContaController controller = new ContaController();
-            boolean resultado = controller.debito(conta1, valor);
+            boolean resultado = controller.credito(conta1, valor);
             if (resultado) {
                // conta2.debito(valor);
                resultado = controller.debito(conta2,valor);
@@ -291,7 +290,7 @@ public class InterfaceBanco extends javax.swing.JFrame {
             float valor = Float.parseFloat(txtValor2.getText());
            // boolean resultado = conta1.credito(valor);
             ContaController controller = new ContaController();
-            boolean resultado = controller.debito(conta2, valor);
+            boolean resultado = controller.credito(conta2, valor);
             if (resultado) {
                // conta2.debito(valor);
                resultado = controller.debito(conta1,valor);
@@ -357,6 +356,18 @@ public class InterfaceBanco extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnDepositarConta2ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        //quando abre a tela
+        ContaController controller = new ContaController();
+        
+         //conta1 = controller.buscar(21);
+         conta2 = controller.buscar(22);
+          
+
+        atualizarInformacoesTela();
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

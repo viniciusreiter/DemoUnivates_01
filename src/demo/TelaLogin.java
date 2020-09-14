@@ -34,18 +34,28 @@ public class TelaLogin extends javax.swing.JFrame {
         lblSenha = new javax.swing.JLabel();
         btnAcessar = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContaActionPerformed(evt);
             }
         });
+        getContentPane().add(txtConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 79, 87, -1));
 
+        lblConta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblConta.setForeground(new java.awt.Color(0, 0, 0));
         lblConta.setText("Conta");
+        getContentPane().add(lblConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 82, -1, -1));
 
+        lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSenha.setForeground(new java.awt.Color(0, 0, 0));
         lblSenha.setText("Senha");
+        getContentPane().add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 131, -1, -1));
 
         btnAcessar.setText("ACESSAR");
         btnAcessar.addActionListener(new java.awt.event.ActionListener() {
@@ -53,40 +63,15 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnAcessarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAcessar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 188, 124, -1));
+        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 128, 87, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblConta)
-                            .addComponent(lblSenha))
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtConta, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                            .addComponent(txtSenha))))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblConta))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSenha))
-                .addGap(56, 56, 56)
-                .addComponent(btnAcessar)
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/password.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 40, 30));
+
+        jLabel1.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,35 +81,37 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContaActionPerformed
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-//       try{
-//           
-//           String conta = txtConta.getText().toString();
-//           String senha = txtSenha.getText().toString();
-//           
-//           if(!conta.equals("")&& !senha.equals("")){
-//               ContaController controller = new ContaController();
-//               Conta objeto = controller.validarLogin(conta, senha);
-//               if(objeto != null){
-//                   dispose();
-//                   
-//                   InterfaceBanco tela = new InterfaceBanco();
-//                   tela.conta1 = objeto;
-//                   tela.setVisible(true);
-//               }else{
-//                   CaixaDeDialogo.obterinstancia().exibirMensagem("Dados invalidos", 'i');
-//               }
-//           }else{
-//               CaixaDeDialogo.obterinstancia().exibirMensagem("Informe conta e senha", 'i');
-//               
-//               
-//               }
-//               
-//           }
-//           
-//       }catch(Exception ex){
-//           CaixaDeDialogo.obterinstancia().exibirMensagem(ex.getMessage(), 'e');
+      
+        try{
            
-       
+           String conta = txtConta.getText().toString();
+           String senha = txtSenha.getText().toString();
+           
+           if(!conta.equals("")&& !senha.equals("")){
+               ContaController controller = new ContaController();
+               Conta objeto = controller.validarLogin(conta, senha);
+               if(objeto != null){
+                   //abrir interfacebanco
+                  
+                   dispose();
+
+                   InterfaceBanco tela = new InterfaceBanco();
+                   tela.conta1 = objeto;
+                   tela.setVisible(true);
+               }else{
+                   CaixaDeDialogo.obterinstancia().exibirMensagem("Dados invalidos", 'i');
+               }
+           }else{
+               CaixaDeDialogo.obterinstancia().exibirMensagem("Informe conta e senha", 'i');
+               
+               
+               }
+               
+           
+       }catch(Exception ex){
+           CaixaDeDialogo.obterinstancia().exibirMensagem(ex.getMessage(), 'e');
+           
+       }
     }//GEN-LAST:event_btnAcessarActionPerformed
 
     /**
@@ -164,6 +151,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcessar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblConta;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JTextField txtConta;
