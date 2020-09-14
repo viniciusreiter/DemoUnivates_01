@@ -32,14 +32,14 @@
                           <Component id="lblConta" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSenha" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtConta" max="32767" attributes="0"/>
-                          <Component id="txtSenha" pref="87" max="32767" attributes="0"/>
+                          <Component id="txtConta" pref="87" max="32767" attributes="0"/>
+                          <Component id="txtSenha" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="276" max="32767" attributes="0"/>
+              <EmptySpace pref="278" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,14 +51,14 @@
                   <Component id="txtConta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblConta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblSenha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="btnAcessar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="148" max="32767" attributes="0"/>
+              <EmptySpace pref="151" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,11 +67,6 @@
     <Component class="javax.swing.JTextField" name="txtConta">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtSenha">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSenhaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblConta">
@@ -91,6 +86,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAcessarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtSenha">
     </Component>
   </SubComponents>
 </Form>

@@ -30,22 +30,16 @@ public class TelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         txtConta = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
         lblConta = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
         btnAcessar = new javax.swing.JButton();
+        txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContaActionPerformed(evt);
-            }
-        });
-
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
             }
         });
 
@@ -72,11 +66,11 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblConta)
                             .addComponent(lblSenha))
-                        .addGap(55, 55, 55)
+                        .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtConta)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))))
-                .addContainerGap(276, Short.MAX_VALUE))
+                            .addComponent(txtConta, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                            .addComponent(txtSenha))))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,13 +79,13 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblConta))
-                .addGap(38, 38, 38)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSenha))
-                .addGap(48, 48, 48)
+                .addGap(56, 56, 56)
                 .addComponent(btnAcessar)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         pack();
@@ -101,40 +95,36 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContaActionPerformed
 
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
-
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-       try{
+//       try{
+//           
+//           String conta = txtConta.getText().toString();
+//           String senha = txtSenha.getText().toString();
+//           
+//           if(!conta.equals("")&& !senha.equals("")){
+//               ContaController controller = new ContaController();
+//               Conta objeto = controller.validarLogin(conta, senha);
+//               if(objeto != null){
+//                   dispose();
+//                   
+//                   InterfaceBanco tela = new InterfaceBanco();
+//                   tela.conta1 = objeto;
+//                   tela.setVisible(true);
+//               }else{
+//                   CaixaDeDialogo.obterinstancia().exibirMensagem("Dados invalidos", 'i');
+//               }
+//           }else{
+//               CaixaDeDialogo.obterinstancia().exibirMensagem("Informe conta e senha", 'i');
+//               
+//               
+//               }
+//               
+//           }
+//           
+//       }catch(Exception ex){
+//           CaixaDeDialogo.obterinstancia().exibirMensagem(ex.getMessage(), 'e');
            
-           String conta = txtConta.getText().toString();
-           String senha = txtSenha.getText().toString();
-           
-           if(!conta.equals("")&& !senha.equals("")){
-               ContaController controller = new ContaController();
-               Conta objeto = controller.validarLogin(conta, senha);
-               if(objeto != null){
-                   dispose();
-                   
-                   InterfaceBanco tela = new InterfaceBanco();
-                   tela.conta1 = objeto;
-                   tela.setVisible(true);
-               }else{
-                   CaixaDeDialogo.obterinstancia().exibirMensagem("Dados invalidos", 'i');
-               }
-           }else{
-               CaixaDeDialogo.obterinstancia().exibirMensagem("Informe conta e senha", 'i');
-               
-               
-               }
-               
-           }
-           
-       }catch(Exception ex){
-           CaixaDeDialogo.obterinstancia().exibirMensagem(ex.getMessage(), 'e');
-           
-       }
+       
     }//GEN-LAST:event_btnAcessarActionPerformed
 
     /**
@@ -177,6 +167,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblConta;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JTextField txtConta;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
